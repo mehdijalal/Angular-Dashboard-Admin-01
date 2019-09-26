@@ -1,0 +1,152 @@
+   <!-- Content Row -->
+   <div class="row">
+
+    <!-- Total applications-->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> Total Application</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">2000</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-file-alt fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pending Applications -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Approved Applications</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">240</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-file-alt fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Approved applications-->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-warning shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Pending Applications</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-file-alt fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rejected applications -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-danger shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Rejected applications</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-file-alt fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Row -->
+
+  <div class="row">
+
+    <!-- Area Chart -->
+    <div class="col-xl-8 col-lg-7">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Applications</h6>
+         
+              <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus-circle"></i> Add New Application</a>
+           
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div >
+              <!-- <button (click)="addItem()" mat-flat-button color='warn'>Add Item</button> -->
+
+              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-bordered table" matSort>
+              
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+              
+                <!-- name Column -->
+                <ng-container matColumnDef="employee_name">
+                  <th  mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.employee_name}} </td>
+                </ng-container>
+              
+                <!-- email Column -->
+                <ng-container matColumnDef="employee_salary">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Application No </th>
+                  <td mat-cell *matCellDef="let element"> {{element.employee_salary}} </td>
+                </ng-container>
+              
+                <!-- phone Column -->
+                <ng-container matColumnDef="appstatus">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Application Status </th>
+                  <td mat-cell *matCellDef="let element"> {{element.appstatus}} </td>
+                </ng-container>
+              
+                <!-- website Column -->
+                <ng-container matColumnDef="comstatus">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Commission Status </th>
+                  <td mat-cell *matCellDef="let element"> {{element.comstatus}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="action">
+                  <th mat-header-cell *matHeaderCellDef> Action </th>
+                  <td mat-cell *matCellDef="let element">
+                    <mat-icon (click)="editUser(element)">edit</mat-icon>
+                  </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>              
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="col-xl-4 col-lg-5">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Notices</h6>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="chart-pie pt-4 pb-2">
+             <p>Notices will go here</p>
+          </div>
+      
+        </div>
+      </div>
+    </div>
+  </div>
